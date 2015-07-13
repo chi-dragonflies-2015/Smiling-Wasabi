@@ -1,5 +1,8 @@
 language: ruby
 rvm:
  - "2.0.0"
+
+notifications:
+  email: false
 # uncomment this line if your project needs to run something other than `rake`:
 # script: bundle exec rspec spec
