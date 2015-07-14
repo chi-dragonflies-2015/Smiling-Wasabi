@@ -1,18 +1,5 @@
 require 'rails_helper'
 
-before(:all) do
-  DatabaseCleaner.strategy = :transaction
-end
-
-before(:each) do
-  DatabaseCleaner.start
-  @user = FactoryGirl.build(:user)
-end
-
-after(:each) do
-  DatabaseCleaner.clean
-end
-
 RSpec.feature 'User visiting site', type: :feature do
   xscenario 'When user visits the main page' do
     visit '/'
@@ -31,7 +18,20 @@ RSpec.feature 'User visiting site', type: :feature do
 end
 
 RSpec.feature 'User Signs up', type: :feature do
-  scenario 'with valid email and password' do
+  before(:all) do
+    DatabaseCleaner.strategy = :transaction
+  end
+
+  before(:each) do
+    DatabaseCleaner.start
+    @user = FactoryGirl.build(:user)
+  end
+
+  after(:each) do
+    DatabaseCleaner.clean
+  end
+
+  xscenario 'with valid email and password' do
     visit signup_path
     sign_up_with(@user.name, @user.email, @user.password)
 
