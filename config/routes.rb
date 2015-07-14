@@ -9,7 +9,7 @@ Rails.application.routes.draw do
   get '/signup' => 'users#new'
   post '/users' => 'users#create'
 
-
+  
   get '/films/:film_id/reviews' => 'reviews#index'
   get '/films/:film_id/reviews/new' => 'reviews#new'
   post '/films/:film_id/reviews' => 'reviews#create'
