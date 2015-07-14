@@ -1,6 +1,10 @@
+<% if flash[:success] %>
+  <div class="success" style="color:green"><%= flash[:success] %></div>
+<% end %>
 <%= render "login" %>
 
 <h1>Welcome to Smiling Wasabi!</h1>
+
 
 <% @genres.each do |genre|%>
   <div class = 'genre-tag'>

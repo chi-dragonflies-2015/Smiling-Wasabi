@@ -4,8 +4,16 @@
   </div>
   <h1>Signup!</h1>
   <div>
-    <%= form_for :user, url: users_path do |f| %>
 
+    <%= form_for :user, url: users_path do |f| %>
+      <% if @user.errors.any? %>
+        <ul>
+        <% @user.errors.full_messages.each do |msg| %>
+          <li><p style="color:red"><%= msg %><p></li>
+        <% end %>
+        </ul>
+      <% end %>
+      <br>
       Name: <%= f.text_field :name %>
       Email: <%= f.text_field :email %>
       Password: <%= f.password_field :password %>
