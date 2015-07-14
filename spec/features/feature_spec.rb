@@ -45,7 +45,7 @@ RSpec.feature 'User Signs up', type: :feature do
     DatabaseCleaner.clean
   end
 
-  xscenario 'with valid email and password' do
+  scenario 'with valid email and password' do
     visit signup_path
     sign_up_with(@user.name, @user.email, @user.password)
 
@@ -54,9 +54,10 @@ RSpec.feature 'User Signs up', type: :feature do
 
   xscenario 'with invalid email' do
     visit signup_path
-    sign_up_with(name, email, password)
+    sign_up_with(name, email, "asdf")
 
-    # write expect stuff
+
+
   end
 
   xscenario 'with blank password' do
@@ -66,18 +67,18 @@ RSpec.feature 'User Signs up', type: :feature do
     # write expect stuff
   end
 
-xscenario 'the user sees reviews on an individual film' do
-  visit 'films/1'
+  xscenario 'the user sees reviews on an individual film' do
+    visit 'films/1'
 
-  expect(page).to have_css '.review'
-end
+    expect(page).to have_css '.review'
+  end
 
-xscenario 'a trusted user can create a review'do
-  visit 'films/1/reviews/new'
-  check auth
-  fill_in 'content', with: review.content
-  click_button 'Submit Review'
-  expect(page).to have_css '.review'
-end
+  xscenario 'a trusted user can create a review'do
+    visit 'films/1/reviews/new'
+    check auth
+    fill_in 'content', with: review.content
+    click_button 'Submit Review'
+    expect(page).to have_css '.review'
+  end
 
 end
