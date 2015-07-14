@@ -10,7 +10,7 @@ class UsersController < ApplicationController
       flash[:success] = "Account created successfully!"
       redirect_to root_path
     else
-      redirect_to signup_path
+      render 'new'
     end
 
   end
