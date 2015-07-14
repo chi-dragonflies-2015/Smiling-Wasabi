@@ -1,0 +1,13 @@
+<%= render "login" %>
+
+<h1>Welcome to Smiling Wasabi!</h1>
+
+<% @genres.each do |genre|%>
+  <div class = 'genre-top5'>
+    <% genre.top5.each.with_index do |film, index| %>
+      <div class = 'film-short'>
+        index + 1 <%= film.title %> <%= film.score %>
+      </div>
+    <% end %>
+  </div>
+<% end %>
