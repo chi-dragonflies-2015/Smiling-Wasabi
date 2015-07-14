@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 RSpec.feature 'User visiting site', type: :feature do
-  scenario 'When user visits the main page' do
+  xscenario 'When user visits the main page' do
     visit '/'
 
     expect(page).to have_text("Welcome to Smiling Wasabi!")
@@ -9,17 +9,25 @@ RSpec.feature 'User visiting site', type: :feature do
     expect(page.all('.genre-tag .movie').empty?).to be(false)
   end
 
-  xscenario 'the user sees reviews on an individual film' do
-  	visit 'films/1'
+  scenario 'When user clicks the Signup link' do
+    visit '/'
+    click_link 'signup_link'
 
-  	expect(page).to have_css '.review' 
+    expect(current_path).to eq(signup_path)
+  end
+
+    xscenario 'the user sees reviews on an individual film' do
+    visit 'films/1'
+
+    expect(page).to have_css '.review' 
   end
 
   xscenario 'a trusted user can create a review'do 
-  	visit 'films/1/reviews/new'
+    visit 'films/1/reviews/new'
     check auth
     fill_in 'content', with: review.content
     click_button 'Submit Review'
     expect(page).to have_css '.review'
-
+  end
+  
 end
