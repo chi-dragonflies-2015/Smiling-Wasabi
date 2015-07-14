@@ -58,7 +58,7 @@ development:
 
 test:
   adapter: postgresql
-  database: smiling-wasabi_test
+  database: smiling_wasabi_test
   username: postgres
 
 # As with config/secrets.yml, you never want to store sensitive information,

@@ -11,6 +11,9 @@
       ],
       "/home/ben/DevBootcamp/phase-3/Team-Wasabi-Film-Studio/app/controllers/films_controller.rb": [
         1,
+        null,
+        1,
+        null,
         null
       ],
       "/home/ben/DevBootcamp/phase-3/Team-Wasabi-Film-Studio/app/controllers/application_controller.rb": [
@@ -24,23 +27,8 @@
         1,
         null,
         null
-      ],
-      "/home/ben/DevBootcamp/phase-3/Team-Wasabi-Film-Studio/app/controllers/users_controller.rb": [
-        1,
-        1,
-        null,
-        null,
-        null,
-        1,
-        null,
-        null,
-        null,
-        1,
-        null,
-        null,
-        null
       ]
     },
-    "timestamp": 1436833546
+    "timestamp": 1436834172
   }
 }
