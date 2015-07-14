@@ -8,8 +8,7 @@ RSpec.describe Film, type: :model do
 
   before(:each) do
     DatabaseCleaner.start
-    @film = FactoryGirl.create(:film)
-    @review = @film.reviews.build(FactoryGirl.create(:review))
+    @review = FactoryGirl.create(:review)
   end
 
   after(:each) do
