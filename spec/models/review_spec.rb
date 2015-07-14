@@ -16,9 +16,24 @@ RSpec.describe Film, type: :model do
   end
 
   describe Review do
-    it 'has content'
-    it 'has a rating'
-    it 'created by a trusted reviewer'
+    xit 'has content' do
+      expect(@review.content).not_to be nil
+    end
+
+    xit 'has a rating' do
+      expect(@review.rating).not_to be nil
+    end
+
+    xit 'created by a trusted reviewer' do
+      expect(@review.user.role).to eq("trusted")
+    end
+  end
+
+  describe "validations" do
+  xit "is valid when it's a review" do
+    @review.valid?
+    expect(@review.errors).to be_empty
+    end
   end
 
 end

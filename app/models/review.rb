@@ -5,6 +5,7 @@ class Review < ActiveRecord::Base
 
   validates :content, presence: true
   validates :rating, inclusion: { in: [true,false] }
+
   validates_associated :film, :user
 
 end
