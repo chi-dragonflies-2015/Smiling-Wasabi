@@ -9,8 +9,11 @@
 	  
 	    <% @reviews.each do |review| %>
 	    <tr class="review">
-	    <td><%= review.user.name %></td>
-	    <td><%= review.content %></td>
+	    <td>By <%= review.user.name %></td>
+	    <td><%= review.content %><br/>
+	     <%= link_to('View Review...', review_path) %>
+	    </td>
+
 	    </tr>
 	<% end %>
 	</table>
