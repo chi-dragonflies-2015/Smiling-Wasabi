@@ -16,7 +16,10 @@ RSpec.describe Film, type: :model do
   end
 
   describe Review do
-    it 'has content'
+    it 'has content' do
+      expect(@review.content).not_to be nil
+    end
+
     it 'has a rating'
     it 'created by a trusted reviewer'
   end
