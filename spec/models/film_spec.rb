@@ -29,7 +29,8 @@ RSpec.describe Film, type: :model do
 
   describe '#review_score' do
     it 'should return the film score based on reviews' do
-
+      expect(FactoryGirl.create(:good_film).review_score).to eq(100)
+      expect(FactoryGirl.create(:bad_film).review_score).to eq(0)
     end
   end
 end
