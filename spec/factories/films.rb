@@ -10,7 +10,7 @@ FactoryGirl.define do
       end
 
       after(:create) do |film, evaluator|
-        build_list(:review, 10, film: film, rating: true)
+        create_list(:review, evaluator.reviews_count, film: film)
       end
     end
 
@@ -20,7 +20,7 @@ FactoryGirl.define do
       end
 
       after(:create) do |film, evaluator|
-        build_list(:review, 10, film: film, rating: false)
+        create_list(:review, 10, film: film, rating: 0)
       end
     end
   end
