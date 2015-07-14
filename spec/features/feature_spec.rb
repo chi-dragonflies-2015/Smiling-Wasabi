@@ -1,5 +1,17 @@
 require 'rails_helper'
-require 'spec_helper'
+
+before(:all) do
+  DatabaseCleaner.strategy = :transaction
+end
+
+before(:each) do
+  DatabaseCleaner.start
+  @user = FactoryGirl.build(:user)
+end
+
+after(:each) do
+  DatabaseCleaner.clean
+end
 
 RSpec.feature 'User visiting site', type: :feature do
   xscenario 'When user visits the main page' do
@@ -18,24 +30,24 @@ RSpec.feature 'User visiting site', type: :feature do
   end
 
 
-RSpec.feature 'User Signing', type: :feature do
+RSpec.feature 'User Signs up', type: :feature do
   scenario 'with valid email and password' do
     visit signup_path
-    sign_up_with(name, password)
+    sign_up_with(@user.name, @user.email, @user.password)
+
+    expect(current_path).to eq(root_path)
+  end
+
+  xscenario 'with invalid email' do
+    visit signup_path
+    sign_up_with(name, email, password)
 
     # write expect stuff
   end
 
-  scenario 'with invalid email' do
+  xscenario 'with blank password' do
     visit signup_path
-    sign_up_with(name, password)
-
-    # write expect stuff
-  end
-
-  scenario 'with blank password' do
-    visit signup_path
-    sign_up_with(name, password)
+    sign_up_with(name, email, password)
 
     # write expect stuff
   end
