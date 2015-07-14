@@ -4,5 +4,9 @@ FactoryGirl.define do
     email  "tj@test.com"
     password "asdfasdf"
   end
+
+  factory :invalid_user, parent: :user do |f|
+     f.firstname nil
+  end
 end
 
