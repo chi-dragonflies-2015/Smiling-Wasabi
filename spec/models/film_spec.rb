@@ -26,4 +26,10 @@ RSpec.describe Film, type: :model do
   it 'has a link to movie art' do
     expect(@film.movie_art).to eq('http://resizing.flixster.com/qLJGPymgNIMnjMyV5RAOyJp8pcI=/180x270/dkpu1ddg7pbsk.cloudfront.net/movie/11/16/89/11168983_ori.jpg')
   end
+
+  describe '#review_score' do
+    it 'should return the film score based on reviews' do
+
+    end
+  end
 end
