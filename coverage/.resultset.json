@@ -14,8 +14,10 @@
         null
       ],
       "/Users/devbootcamp/bootcamp/smiling-wasabi/app/controllers/films_controller.rb": [
+
         1,
         null,
+        1,
         1,
         null,
         null
@@ -35,6 +37,23 @@
         1,
         0,
         null,
+        null,
+        1,
+        0,
+        0,
+        null,
+        null
+      ],
+      "/home/ben/DevBootcamp/phase-3/Team-Wasabi-Film-Studio/app/models/film.rb": [
+        1,
+        1,
+        1,
+        null
+      ],
+      "/home/ben/DevBootcamp/phase-3/Team-Wasabi-Film-Studio/app/models/genre.rb": [
+        1,
+        1,
+        1,
         null
       ]
     },
