@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150714152725) do
+ActiveRecord::Schema.define(version: 20150714212930) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -51,9 +51,20 @@ ActiveRecord::Schema.define(version: 20150714152725) do
     t.string   "email"
     t.string   "password_digest"
     t.string   "role"
-    t.string   "avatar"
     t.datetime "created_at",      null: false
     t.datetime "updated_at",      null: false
   end
+
+  create_table "votes", force: :cascade do |t|
+    t.string   "vote_type"
+    t.integer  "voteable_id"
+    t.string   "voteable_type"
+    t.integer  "voter_id"
+    t.boolean  "value"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "votes", ["voteable_type", "voteable_id"], name: "index_votes_on_voteable_type_and_voteable_id", using: :btree
 
 end
