@@ -26,17 +26,31 @@ class ReviewsController < ApplicationController
     @review = Review.find(params: :review_id)
   end
 
+  #require authorization
   def edit
-  	#edit review form
-  	#only avaiable to creator
+  	@film = Film.find(params: :film_id)
+    @review = Review.find(params: :review_id)
   end
 
+  #require authorization
   def update
-  	#updates review
+  	film = Film.find(params: :film_id)
+    @review = film.reviews.find(params: :review_id)
+
+    if @review.update(review_params)
+      redirect_to @review
+    else
+      render edit_review_path
+    end
   end
 
+  #require authorization
   def destroy
-  	#deletes review
+  	film = Film.find(params: :film_id)
+    review = film.reviews.find(params: :review_id)
+
+    review.destroy
+    redirect_to film
   end
 
   private
