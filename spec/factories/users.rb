@@ -4,6 +4,7 @@ FactoryGirl.define do
     email  "tj@test.com"
     password "asdfasdf"
 
+
     factory :reviewer do
       role "trusted"
     end
