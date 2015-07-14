@@ -4,7 +4,7 @@ FactoryGirl.define do
     content "A visual masterpiece"
     rating  true
     film 
-    user
+    reviewer 
   end
 
 end
