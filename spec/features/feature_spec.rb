@@ -52,3 +52,17 @@ RSpec.feature 'User Signs up', type: :feature do
     # write expect stuff
   end
 end
+
+xscenario 'the user sees reviews on an individual film' do
+  visit 'films/1'
+
+  expect(page).to have_css '.review'
+end
+
+xscenario 'a trusted user can create a review'do
+  visit 'films/1/reviews/new'
+  check auth
+  fill_in 'content', with: review.content
+  click_button 'Submit Review'
+  expect(page).to have_css '.review'
+end
