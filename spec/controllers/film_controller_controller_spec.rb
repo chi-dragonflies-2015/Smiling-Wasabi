@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe FilmControllerController, type: :controller do
+RSpec.describe FilmsController, type: :controller do
 
   describe "GET #index" do
     it 'assigns all genres as @genre' do
