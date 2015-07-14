@@ -9,4 +9,4 @@ Coveralls.wear!('rails')
     fill_in 'Password Confirmation', with: password
     click_button 'Sign up'
   end
-end
+

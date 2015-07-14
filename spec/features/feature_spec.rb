@@ -28,7 +28,7 @@ RSpec.feature 'User visiting site', type: :feature do
 
     expect(current_path).to eq(signup_path)
   end
-
+end
 
 RSpec.feature 'User Signs up', type: :feature do
   scenario 'with valid email and password' do
