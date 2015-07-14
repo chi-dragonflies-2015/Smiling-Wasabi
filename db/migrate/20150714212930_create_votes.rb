@@ -3,6 +3,7 @@ class CreateVotes < ActiveRecord::Migration
     create_table :votes do |t|
       t.string :vote_type
       t.references :voteable, polymorphic: true, index: true
+      t.references :voter
       t.boolean :value
       t.timestamps
     end
