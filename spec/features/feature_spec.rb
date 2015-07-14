@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 RSpec.feature 'User visiting site', type: :feature do
-  xscenario 'When user visits the main page' do
+  scenario 'When user visits the main page' do
     visit '/'
 
     expect(page).to have_text("Welcome to Smiling Wasabi!")
