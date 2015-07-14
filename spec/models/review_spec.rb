@@ -16,5 +16,10 @@ RSpec.describe Film, type: :model do
     DatabaseCleaner.clean
   end
 
+  describe Review do
+    it 'has content'
+    it 'has a rating'
+    it 'created by a trusted reviewer'
+  end
 
 end
