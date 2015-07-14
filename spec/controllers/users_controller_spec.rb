@@ -23,12 +23,15 @@ RSpec.describe UsersController, type: :controller do
     end
 
     context "with invalid attributes" do
-      xit "does not save the new contact in the database" do
-
+      it "does not save the new contact in the database" do
+        expect{
+          post :create, user: FactoryGirl.attributes_for(:invalid_user)
+          }.to change(User,:count).by(0)
       end
 
-      xit "re-renders the :new template" do
-
+      it "re-renders the :new template" do
+        post :create, user: FactoryGirl.attributes_for(:invalid_user)
+        response.should render_template :new
       end
     end
   end

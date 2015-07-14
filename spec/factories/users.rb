@@ -6,7 +6,7 @@ FactoryGirl.define do
   end
 
   factory :invalid_user, parent: :user do |f|
-     f.firstname nil
+     f.password nil
   end
 end
 
