@@ -10,3 +10,6 @@ Coveralls.wear!('rails')
     click_button 'Sign Up'
   end
 
+
+
+

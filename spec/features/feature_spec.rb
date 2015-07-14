@@ -40,7 +40,9 @@ RSpec.feature 'User Signs up', type: :feature do
 
   xscenario 'with invalid email' do
     visit signup_path
-    sign_up_with(name, email, password)
+    sign_up_with(name, email, "asdf")
+
+
 
   end
 
