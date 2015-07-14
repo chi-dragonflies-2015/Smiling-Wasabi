@@ -12,7 +12,7 @@ class ReviewsController < ApplicationController
 
   def create
     @film = Film.find(params: :film_id)
-    @review = Review.new(review_params)
+    @review = @film.reviews.build(review_params)
 
     if @review.save
       redirect_to @film, notice: 'Review was successfully created.'
@@ -22,7 +22,8 @@ class ReviewsController < ApplicationController
   end
 
   def show
-  	#individual review
+    @film = Film.find(params: :film_id)
+    @review = Review.find(params: :review_id)
   end
 
   def edit
