@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
 
-  root 'films#index'
+  root 'genres#index'
 
   get '/login' => 'sessions#new'
   post '/login' => 'sessions#create'

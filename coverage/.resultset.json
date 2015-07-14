@@ -5,6 +5,7 @@
         1,
         null
       ],
+
       "/Users/lolaadekunle/Desktop/Devbootcamp/Smiling-Wasabi/app/helpers/sessions_helper.rb": [
         1,
         null
@@ -14,8 +15,10 @@
         null
       ],
       "/Users/lolaadekunle/Desktop/Devbootcamp/Smiling-Wasabi/app/controllers/films_controller.rb": [
+
         1,
         null,
+        1,
         1,
         null,
         null
@@ -35,6 +38,7 @@
         1,
         0,
         null,
+
         null
       ],
       "/Users/lolaadekunle/Desktop/Devbootcamp/Smiling-Wasabi/app/controllers/sessions_controller.rb": [
@@ -60,11 +64,38 @@
         null
       ],
       "/Users/lolaadekunle/Desktop/Devbootcamp/Smiling-Wasabi/app/models/film.rb": [
+
         1,
+        0,
+        0,
+        0,
+        0,
         null,
+        0,
+        null,
+        null,
+        null,
+        1,
+        0,
+        0,
+        null,
+        null
+      ],
+      "/home/ben/DevBootcamp/phase-3/Team-Wasabi-Film-Studio/app/models/film.rb": [
+        1,
+        1,
+        1,
+        null
+      ],
+      "/home/ben/DevBootcamp/phase-3/Team-Wasabi-Film-Studio/app/models/genre.rb": [
+        1,
+        1,
+        1,
         null
       ]
     },
+
     "timestamp": 1436880656
+
   }
 }
