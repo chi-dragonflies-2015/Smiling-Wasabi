@@ -13,5 +13,5 @@
 /tmp
 /coverage/*
 /coverage
-
+/Gemfile.lock
 
