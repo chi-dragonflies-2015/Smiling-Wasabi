@@ -1,34 +1,43 @@
 {
   "RSpec": {
     "coverage": {
-      "/home/ben/DevBootcamp/phase-3/Team-Wasabi-Film-Studio/app/helpers/application_helper.rb": [
+      "/Users/devbootcamp/bootcamp/smiling-wasabi/app/helpers/application_helper.rb": [
         1,
         null
       ],
-      "/home/ben/DevBootcamp/phase-3/Team-Wasabi-Film-Studio/app/helpers/users_helper.rb": [
+      "/Users/devbootcamp/bootcamp/smiling-wasabi/app/helpers/sessions_helper.rb": [
         1,
         null
       ],
-      "/home/ben/DevBootcamp/phase-3/Team-Wasabi-Film-Studio/app/controllers/films_controller.rb": [
+      "/Users/devbootcamp/bootcamp/smiling-wasabi/app/helpers/users_helper.rb": [
+        1,
+        null
+      ],
+      "/Users/devbootcamp/bootcamp/smiling-wasabi/app/controllers/films_controller.rb": [
         1,
         null,
         1,
         null,
         null
       ],
-      "/home/ben/DevBootcamp/phase-3/Team-Wasabi-Film-Studio/app/controllers/application_controller.rb": [
+      "/Users/devbootcamp/bootcamp/smiling-wasabi/app/controllers/application_controller.rb": [
         1,
         null,
         null,
         1,
-        null
-      ],
-      "/home/ben/DevBootcamp/phase-3/Team-Wasabi-Film-Studio/app/models/film.rb": [
+        null,
         1,
+        0,
+        null,
+        null,
+        1,
+        null,
+        1,
+        0,
         null,
         null
       ]
     },
-    "timestamp": 1436834172
+    "timestamp": 1436883557
   }
 }

@@ -8,4 +8,11 @@ RSpec.feature 'User visiting site', type: :feature do
     expect(page.all('.genre-tag').empty?).to be(false)
     expect(page.all('.genre-tag .movie').empty?).to be(false)
   end
+
+  scenario 'When user clicks the Signup link' do
+    visit '/'
+    click_link '#signup_link'
+
+    expect(current_path).to eq(signup_path)
+  end
 end
