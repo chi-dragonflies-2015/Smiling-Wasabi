@@ -13,11 +13,11 @@
         1,
         null
       ],
-      "/home/ben/DevBootcamp/phase-3/Team-Wasabi-Film-Studio/app/controllers/films_controller.rb": [
+      "/home/ben/DevBootcamp/phase-3/Team-Wasabi-Film-Studio/app/controllers/genres_controller.rb": [
         1,
         null,
         1,
-        2,
+        1,
         null,
         null
       ],
@@ -62,10 +62,17 @@
       ],
       "/home/ben/DevBootcamp/phase-3/Team-Wasabi-Film-Studio/app/models/film.rb": [
         1,
-        null,
+        1,
+        1,
+        null
+      ],
+      "/home/ben/DevBootcamp/phase-3/Team-Wasabi-Film-Studio/app/models/genre.rb": [
+        1,
+        1,
+        1,
         null
       ]
     },
-    "timestamp": 1436881214
+    "timestamp": 1436882237
   }
 }
