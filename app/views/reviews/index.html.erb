@@ -1,0 +1,18 @@
+<div class="container">
+
+	<div class="side_bar">
+		img_tag("<%= @film.movie_art %>", class: "art_thumbnail")	
+		<h4> <%= @film.title => </h4>
+	</div> 
+
+	<table>
+	  
+	    <% @reviews.each do |review| %>
+	    <tr class="review">
+	    <td><%= review.user.name %></td>
+	    <td><%= review.content %></td>
+	    </tr>
+	<% end %>
+	</table>
+
+</div>
