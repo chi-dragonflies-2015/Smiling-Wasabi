@@ -6,11 +6,19 @@ class ReviewsController < ApplicationController
   end
 
   def new
-  	#create a new review
-  	#shows form
+  	@film = Film.find(params: :film_id)
+    @review = Review.new(film: @film)
   end
 
   def create
+    @film = Film.find(params: :film_id)
+    @review = Review.new(review_params)
+
+    if @review.save
+      redirect_to @film, notice: 'Review was successfully created.'
+    else
+      render :new
+    end
   end
 
   def show
@@ -28,6 +36,12 @@ class ReviewsController < ApplicationController
 
   def destroy
   	#deletes review
+  end
+
+  private
+  
+  def review_params
+    params.require(:review).permit(:content, :rating, :checkbox_value)
   end
 
 end

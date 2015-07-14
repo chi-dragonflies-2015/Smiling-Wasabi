@@ -10,7 +10,7 @@
   </div>
 <% end %>
 
-<%= form_for :review, url: "/reviews" do |f| %>
+<%= form_for :review, url: "films/<%= @film.id %>/reviews" do |f| %>
   <%= f.label :content %>:
   <%= f.text_field :content %><br />
 
