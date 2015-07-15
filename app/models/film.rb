@@ -13,7 +13,12 @@ class Film < ActiveRecord::Base
   end
 
   def self.top_movies
-    Imdb::Top250.new.movies
+    results = Imdb::Top250.new.movies
+    results.each do |movie|
+      if !movie.title.empty?
+        movie
+      end
+    end
   end
 
   def self.movie_title(title)

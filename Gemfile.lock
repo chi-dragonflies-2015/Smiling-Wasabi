@@ -228,12 +228,9 @@ DEPENDENCIES
   database_cleaner
   factory_girl_rails
   faker
-<<<<<<< HEAD
   imdb (~> 0.8)
-=======
   jasmine-jquery-rails
   jasmine-rails
->>>>>>> master
   jbuilder (~> 2.0)
   jquery-rails
   pg
