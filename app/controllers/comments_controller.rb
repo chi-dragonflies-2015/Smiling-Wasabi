@@ -75,7 +75,13 @@
     @comment = Comment.find(params[:id])
 
     @comment.destroy
-    redirect_to @film
+    if params[:review_id]
+      @review = Review.find(params[:review_id])
+      redirect_to @review
+    else
+      redirect_to @film
+    end
+    
   end
 
   private
