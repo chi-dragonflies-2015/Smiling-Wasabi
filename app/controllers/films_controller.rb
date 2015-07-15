@@ -4,7 +4,7 @@ class FilmsController < ApplicationController
   end
 
   def show
-    @film = Film.find_by(params[:film_id])
+    @film = Film.find(params[:id])
     @reviews = @film.reviews
   end
 end
