@@ -2,17 +2,36 @@
 
 
   def new
-  	@film = Film.find(params[:film_id])
-    @comment = Comment.new(film: @film)
+  	if params[:review_id]
+      @review = Review.find(params[:review_id])
+      @film = Film.find(params[:film_id]) 
+      @comment = @review.comments.new
+      @url = "films/<%= @film.id %>/reviews/<%= @review.id %>/comments"
+    else
+      @film = Film.find(params[:film_id])
+      @comment = Comment.new(film: @film)
+      @url = "films/<%= @film.id %>/comments"
+    end
   end
 
   def create
-    @film = Film.find(params[:film_id])
-    @comment = @film.comments.build(comment_params)
-
-    if @comment.save
-      redirect_to @film, notice: 'Comment was successfully created.'
+    if params[:review_id]
+      @review = Review.find(params[:review_id])
+      @film = Film.find(params[:film_id]) 
+      @comment = @review.comments.new(comment_params)
+      if @comment.save
+        redirect_to @review, notice: 'Comment was successfully created.'
+      end
+    
     else
+      @film = Film.find(params[:film_id])
+      @comment = @review.comments.new(comment_params)
+      if @comment.save
+        redirect_to @film, notice: 'Comment was successfully created.'
+      end 
+    end
+
+    unless @comment.save
       render :new
     end
   end
