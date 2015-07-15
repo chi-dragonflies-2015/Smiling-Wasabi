@@ -34,13 +34,13 @@ class ReviewsController < ApplicationController
 
   #require authorization
   def update
-  	film = Film.find(params[:film_id])
+  	@film = Film.find(params[:film_id])
     @review = Review.find(params[:id])
 
     if @review.update(review_params)
-      redirect_to @review
+      redirect_to @review, notice: 'Review was successfully created.'
     else
-      render edit_review_path
+      render :edit
     end
   end
 
