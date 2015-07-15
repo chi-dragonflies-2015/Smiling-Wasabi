@@ -3,6 +3,7 @@ class Film < ActiveRecord::Base
   has_many :genres, through: :films_genres
   has_many :reviews
   has_many :votes, as: :voteable
+  has_many :comments, as: :commentable
 
 
   def review_score
