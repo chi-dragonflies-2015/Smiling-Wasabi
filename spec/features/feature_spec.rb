@@ -59,7 +59,7 @@ RSpec.feature 'User Signs up', type: :feature do
     expect(page).to have_text("Email can't be blank")
   end
 
-  scenario 'with blank password' do
+  xscenario 'with blank password' do
     visit signup_path
     sign_up_with(@user.name, @user.email, "")
 
