@@ -13,11 +13,9 @@ class Film < ActiveRecord::Base
   end
 
   def self.top_movies
-    results = Imdb::Top250.new.movies
-    results.each do |movie|
-      if !movie.title.empty?
-        movie
-      end
+    results = Imdb::Top250.new.movies.
+    results.select do |movie|
+      movie.title != ""
     end
   end
 
@@ -32,6 +30,7 @@ class Film < ActiveRecord::Base
     results = Imdb::Search.new(title)
     results.movies.each do |movie|
       movie.plot
+    end
   end
 
   def user_score
