@@ -11,18 +11,21 @@ Rails.application.routes.draw do
   post '/users' => 'users#create'
 
   resources :films, :only => [:index, :show] do
-    resources :reviews do
-      resources :comments
-    end
+    resources :reviews 
   end
   
-  # get '/films/:film_id/reviews' => 'reviews#index'
-  # get '/films/:film_id/reviews/new' => 'reviews#new'
-  # post '/films/:film_id/reviews' => 'reviews#create'
-  # get '/films/:film_id/reviews/:review_id' => 'reviews#show'
-  # get '/films/:film_id/reviews/:review_id/edit' => 'reviews#edit'
-  # put '/films/:film_id/reviews/:review_id' => 'reviews#update'
-  # delete '/films/:film_id/reviews/:review_id' => 'reviews#destroy'
+  get '/films/:film_id/comments/new' => 'comments#new'
+  get '/films/:film_id/reviews/:review_id/comments/new' => 'comments#new'
+  
+  post '/films/:film_id/comments' => 'comments#create'
+  post '/films/:film_id/reviews/:review_id/comments' => 'comments#create'
+
+  put '/films/:film_id/comments/:id' => 'comments#update'
+  put '/films/:film_id/reviews/:review_id/comments/:id' => 'comments#update'
+
+  delete '/films/:film_id/comments/:id' => 'comments#destroy'
+  delete '/films/:film_id/reviews/:review_id/comments/:id' => 'comments#destroy'
+
 
   put '/films/:film_id/vote' => 'votes#vote'
   put '/reviews/:review_id/vote' => 'votes#vote'
