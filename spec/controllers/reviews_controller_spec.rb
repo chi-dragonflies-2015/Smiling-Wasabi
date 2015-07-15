@@ -46,7 +46,19 @@ RSpec.describe ReviewsController, type: :controller do
   end
 
   describe  "reviews#new" do
-  	pending '   '
+  	
+    before do
+      get :new, { :film_id => @film.id }
+    end
+
+    it "assigns the film as @film" do
+      expect(assigns(:film)).to eq(@film)
+    end
+
+    it "assigns the review as @review" do
+      expect(assigns(:review)).to be_a Review
+    end
+
   end
 
   describe "reviews#create" do
