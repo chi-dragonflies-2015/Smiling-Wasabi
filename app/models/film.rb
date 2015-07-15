@@ -11,4 +11,22 @@ class Film < ActiveRecord::Base
     good_reviews = all_reviews.select{ |review| review.rating == true }
     100 * good_reviews.length / all_reviews.length
   end
+
+  def self.top_movies
+    Imdb::Top250.new.movies
+  end
+
+  def self.movie_title(title)
+    results = Imdb::Search.new(title)
+    results.movies.each do |movie|
+      movie.title
+    end
+  end
+
+  def self.movie_plot(title)
+    results = Imdb::Search.new(title)
+    results.movies.each do |movie|
+      movie.plot
+    end
+  end
 end
