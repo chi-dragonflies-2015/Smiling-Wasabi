@@ -7,7 +7,7 @@ class Film < ActiveRecord::Base
 
   def review_score
     all_reviews = reviews
-    return 'N/A' if all_reviews.length == 0
+    return 0 if all_reviews.length == 0
     good_reviews = all_reviews.select{ |review| review.rating == true }
     100 * good_reviews.length / all_reviews.length
   end

@@ -1,0 +1,9 @@
+<!-- need to pass in two local params:
+      votable is the film or review object
+      vote_route is either /films/film.id or /reviews/review.id -->
+
+<div class='vote-box'>
+  <a href="/<%= vote_route %>/vote" class='upvote'>Recommend this!</a>
+  <div class = 'score'><%= votable.user_score %></div>
+  <a href="/<%= vote_route %>/vote" class='downvote'>This was bad!</a>
+</div>
