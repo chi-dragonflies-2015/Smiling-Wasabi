@@ -2,6 +2,7 @@ class Review < ActiveRecord::Base
   belongs_to :film
   belongs_to :user
   has_many :votes, as: :voteable
+  has_many :comments, as: :commentable
 
   validates :content, presence: true
   validates :rating, inclusion: { in: [true,false] }
