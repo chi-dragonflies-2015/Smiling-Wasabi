@@ -27,6 +27,12 @@ class Film < ActiveRecord::Base
     results = Imdb::Search.new(title)
     results.movies.each do |movie|
       movie.plot
-    end
+  end
+
+  def user_score
+    all_votes = votes
+    return 'N/A' if all_votes.length == 0
+    upvotes = all_votes.select{ |vote| vote.value == true }
+    100 * upvotes.length / all_votes.length
   end
 end

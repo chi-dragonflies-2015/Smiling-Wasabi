@@ -27,6 +27,13 @@ RSpec.describe Film, type: :model do
     xit 'created by a trusted reviewer' do
       expect(@review.user.role).to eq("trusted")
     end
+
+    describe '#user_score' do
+      it 'should return the film score based on user votes' do
+        expect(FactoryGirl.create(:popular_review).user_score).to eq(100)
+        expect(FactoryGirl.create(:unpopular_review).user_score).to eq(0)
+      end
+    end
   end
 
   describe "validations" do

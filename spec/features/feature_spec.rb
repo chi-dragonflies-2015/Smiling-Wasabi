@@ -66,18 +66,37 @@ RSpec.feature 'User Signs up', type: :feature do
     expect(page).to have_text("Password is too short (minimum is 6 characters)")
   end
 
-  xscenario 'the user sees reviews on an individual film' do
-    visit 'films/1'
+end
 
-    expect(page).to have_css '.review'
+ 
+RSpec.feature 'Individual Review Page', type: :feature do
+  before(:all) do
+    DatabaseCleaner.strategy = :transaction
+  end
+
+  before(:each) do
+    DatabaseCleaner.start
+    @film = FactoryGirl.create(:good_film)
+    @review = @film.reviews.first
+    @reviewer = @review.user
+  end
+
+  after(:each) do
+    DatabaseCleaner.clean
+  end
+
+  scenario 'user can see full review on a review page' do
+    visit film_review_path(@film, @review) 
+    expect(page).to have_css '.full_review'
   end
 
   xscenario 'a trusted user can create a review'do
-    visit 'films/1/reviews/new'
-    check auth
-    fill_in 'content', with: review.content
-    click_button 'Submit Review'
-    expect(page).to have_css '.review'
+    visit new_film_review_path(@film) 
+    # check auth
+    fill_in 'review[content]', with: 'A thrill ride'
+    check 'review[rating]'
+    click_button 'Create'
+    expect(page).to have_content('Review was successfully created.')
   end
 
 end

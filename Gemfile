@@ -51,5 +51,7 @@ group :development, :test do
   gem 'database_cleaner'
   gem 'capybara'
   gem 'faker'
+  gem 'jasmine-rails'
+  gem 'jasmine-jquery-rails'
 end
 

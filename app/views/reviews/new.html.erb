@@ -1,6 +1,6 @@
 <% if @review.errors.any? %>
   <div id="error_explanation">
-    <h2><%= pluralize(@review.errors.count, "error") %> prohibited this review from being saved:</h2>
+    <h3><%= pluralize(@review.errors.count, "error") %> prohibited this review from being saved:</h3>
 
     <ul>
     <% @review.errors.full_messages.each do |message| %>
@@ -10,12 +10,12 @@
   </div>
 <% end %>
 
-<%= form_for :review, url: "films/<%= @film.id %>/reviews" do |f| %>
+<%= form_for :review, url: film_reviews_path, method: 'POST' do |f| %>
   <%= f.label :content %>:
   <%= f.text_field :content %><br />
 
   <%= f.label :rating %>:
   <%= f.check_box :rating %><br />
 
-  <%= f.submit %>
+  <%= f.submit "Create" %>
 <% end %>

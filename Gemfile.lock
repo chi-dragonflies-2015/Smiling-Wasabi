@@ -87,6 +87,13 @@ GEM
     i18n (0.7.0)
     imdb (0.8.1)
       nokogiri (>= 1.6.0)
+    jasmine-core (2.3.4)
+    jasmine-jquery-rails (2.0.3)
+    jasmine-rails (0.10.8)
+      jasmine-core (>= 1.3, < 3.0)
+      phantomjs (>= 1.9)
+      railties (>= 3.2.0)
+      sprockets-rails
     jbuilder (2.3.1)
       activesupport (>= 3.0.0, < 5)
       multi_json (~> 1.2)
@@ -107,6 +114,7 @@ GEM
     nokogiri (1.6.6.2)
       mini_portile (~> 0.6.0)
     pg (0.18.2)
+    phantomjs (1.9.8.0)
     rack (1.6.4)
     rack-test (0.6.3)
       rack (>= 1.0)
@@ -220,7 +228,12 @@ DEPENDENCIES
   database_cleaner
   factory_girl_rails
   faker
+<<<<<<< HEAD
   imdb (~> 0.8)
+=======
+  jasmine-jquery-rails
+  jasmine-rails
+>>>>>>> master
   jbuilder (~> 2.0)
   jquery-rails
   pg
@@ -233,6 +246,3 @@ DEPENDENCIES
   turbolinks
   uglifier (>= 1.3.0)
   web-console (~> 2.0)
-
-BUNDLED WITH
-   1.10.3
