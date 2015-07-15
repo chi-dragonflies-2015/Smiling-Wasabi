@@ -1,22 +1,48 @@
 require 'rails_helper'
 
 RSpec.describe ReviewsController, type: :controller do
-  let(:review) { FactoryGirl.build(:review) }
+  before(:all) do
+    DatabaseCleaner.strategy = :transaction
+  end
+
+  before(:each) do
+    DatabaseCleaner.start
+    @film = FactoryGirl.create(:good_film)
+  end
+
+  after(:each) do
+    DatabaseCleaner.clean
+  end
+
   
-  describe "GET reviews#index" do
-    xit "assigns @reviews" do
-
-      get :index
-      expect(assigns(:reviews)).to include([])
-
-    pending 'displays all reviews for a film' do
-      get 'films/:film_id/reviews' 
-      expect(assigns(:reviews)).to eq(assigns(:film).reviews)
+  describe "GET #index" do
+     
+     it 'renders the index template' do
+      get :index, { :film_id => @film.id }
+      expect(response).to render_template('index')
     end
+
+    it "assigns @reviews" do
+      get :index, { :film_id => @film.id }
+      expect(assigns(:reviews)).to eq(@film.reviews)
+    end
+
   end
 
   describe "reviews#show" do
-  	pending ' w'
+  	
+    before do
+      get :show, { :film_id => @film.id, :id => @film.reviews.first.id }
+    end
+
+    it "assigns the film as @film" do
+      expect(assigns(:film)).to eq(@film)
+    end
+
+    it "assigns the review as @review" do
+      expect(assigns(:review)).to eq(@film.reviews.first)
+    end
+
   end
 
   describe  "reviews#new" do
@@ -30,6 +56,5 @@ RSpec.describe ReviewsController, type: :controller do
   describe "reviews#destroy" do
   	pending '   '
   end
-
 
 end
