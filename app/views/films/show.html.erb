@@ -32,11 +32,11 @@
       <% @reviews.each do |review| %>
         <img src="http://lorempixel.com/100/100/" alt="" class="circle">
         <span class="title"> <%= review.user.name %> </span>
-        <p> <%= review.content %> <br>
-           Second Line
+        <p> <%= review.content %> 
         </p>
+        <%= render partial: "/votes/vote", locals: { voteable: review, vote_route: "/reviews/#{review.id}"}  %>
+        <br><br>
       <% end %>
-      <a href="#!" class="secondary-content"><i class="material-icons">grade</i></a>
     </li>
   </ul>
 
