@@ -1,4 +1,4 @@
-class CreateFilmsGenres < ActiveRecord::Migration
+rclass CreateFilmsGenres < ActiveRecord::Migration
   def change
     create_table :films_genres do |t|
       t.references :film
