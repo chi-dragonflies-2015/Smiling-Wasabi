@@ -62,7 +62,51 @@ RSpec.describe ReviewsController, type: :controller do
   end
 
   describe "reviews#create" do
-  	pending '   '
+  	context "when valid params are passed" do
+      before do
+        @original_count = @film.reviews.count
+        post :create, {:film_id => @film.id, :review => {content: "A visual masterpiece", rating: true}} 
+      end
+
+      it "creates a new Review" do
+        expect(@film.reviews.count - @original_count).to eq(1)
+      end
+
+      it "assigns a newly created review as @review" do
+        expect(assigns(:review)).to be_a Review
+      end
+
+      it "redirects to the film page" do
+        expect(response).to redirect_to(assigns(:film))
+      end
+    
+    end
+
+    context "when invalid params are passed" do
+
+      before do
+        post :create, {:film_id => @film.id, :review => {content: nil, rating: true}}
+      end
+
+      it "assigns a newly created but unsaved review as @review" do
+        expect(assigns(:review).id).to eq(nil)
+      end
+
+      it "re-renders the 'new' template" do
+        expect(response).to render_template(:new)
+      end
+
+    end
+
+
+  end
+
+  describe "reviews#edit" do
+    pending '   '
+  end
+
+  describe "reviews#update" do
+    pending '   '
   end
 
   describe "reviews#destroy" do
