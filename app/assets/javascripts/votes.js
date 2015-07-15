@@ -20,7 +20,7 @@ function vote(event, vote){
       200: function(response){
           $(that).toggleClass('voted');
           $(that).siblings().removeClass('voted');
-          $(that).siblings('.score').text(response.score + '% with ' + response.num_votes + ' people voting');
+          $(that).siblings('.score').text(response.score + '% like this with ' + response.num_votes + ' people voting');
         }
     }
   });
