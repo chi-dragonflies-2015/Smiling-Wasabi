@@ -13,7 +13,7 @@ class Film < ActiveRecord::Base
   end
 
   def self.top_movies
-    results = Imdb::Top250.new.movies.
+    results = Imdb::Top250.new.movies
     results.select do |movie|
       movie.title != ""
     end

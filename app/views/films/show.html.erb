@@ -1,23 +1,43 @@
-
-<%= render 'login' %>
+<% if current_user == nil %>
+  <%= render 'login' %>
+<% else %>
+  <%= render 'logout' %>
+<% end %>
 <div class="general-container">
-   <div class="row">
     <div class="col s12 m7">
-      <div class="card">
+      <div class="card photo_card">
         <div class="card-image">
           <img src="http://lorempixel.com/500/400/">
-          <span class="card-title"><%=  %></span>
+          <span class="card-title"><%=@film.title %></span>
         </div>
-        <div class="card-content">
-          <p>I am a very simple card. I am good at containing small bits of information.
-          I am convenient because I require little markup to use effectively.</p>
-        </div>
-        <div class="card-action">
-          <a href="#">This is a link</a>
-        </div>
+      </div>
+  </div>
+  <div class="col s12 m6">
+    <div class="card blue-grey darken-1">
+      <div class="card-content white-text">
+        <span class="card-title"><%= @film.title %></span>
+        <% @film.genres.each do |genre| %>
+        <h5>Genre: <%= genre.name %><br>
+        <% end %>
+        <h5>Description:</h2> <%= @film.description %>
+      </div>
+      <div class="card-action">
+        <h3>Rating: <%= @film.review_score %></h3>
       </div>
     </div>
   </div>
-  <div>
-  </div>
+
+  <ul class="collection">
+    <li class="collection-item avatar">
+      <% @reviews.each do |review| %>
+        <img src="http://lorempixel.com/100/100/" alt="" class="circle">
+        <span class="title"> <%= review.user.name %> </span>
+        <p> <%= review.content %> <br>
+           Second Line
+        </p>
+      <% end %>
+      <a href="#!" class="secondary-content"><i class="material-icons">grade</i></a>
+    </li>
+  </ul>
+
 </div>

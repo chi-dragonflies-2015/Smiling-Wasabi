@@ -51,11 +51,13 @@ ActiveRecord::Schema.define(version: 20150714212930) do
     t.string   "email"
     t.string   "password_digest"
     t.string   "role"
+    t.string   "avatar"
     t.datetime "created_at",      null: false
     t.datetime "updated_at",      null: false
   end
 
   create_table "votes", force: :cascade do |t|
+    t.string   "vote_type"
     t.integer  "voteable_id"
     t.string   "voteable_type"
     t.integer  "voter_id"
