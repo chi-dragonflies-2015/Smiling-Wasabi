@@ -23,6 +23,27 @@ FactoryGirl.define do
         create_list(:review, 10, film: film, rating: 0)
       end
     end
+
+    factory :popular_film do
+      transient do
+        vote_count 10
+      end
+
+      after(:create) do |film, evaluator|
+        # raise film.inspect
+        create_list(:vote, 10, voteable: film, value: 1)
+      end
+    end
+
+    factory :unpopular_film do
+      transient do
+        vote_count 10
+      end
+
+      after(:create) do |film, evaluator|
+        create_list(:vote, 10, voteable: film, value: 0)
+      end
+    end
   end
 
 end

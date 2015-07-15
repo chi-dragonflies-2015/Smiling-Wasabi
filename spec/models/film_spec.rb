@@ -33,4 +33,11 @@ RSpec.describe Film, type: :model do
       expect(FactoryGirl.create(:bad_film).review_score).to eq(0)
     end
   end
+
+  describe '#user_score' do
+    it 'should return the film score based on user votes' do
+      expect(FactoryGirl.create(:popular_film).user_score).to eq(100)
+      expect(FactoryGirl.create(:unpopular_film).user_score).to eq(0)
+    end
+  end
 end
