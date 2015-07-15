@@ -1,0 +1,24 @@
+<% if current_user == nil %>
+  <%= render 'login' %>
+<% else %>
+  <%= render 'logout' %>
+<% end %>
+<div class="general-container">
+  <ul class="collection">
+      <% @films.each do |film| %>
+        <li class="collection-item avatar">
+        <img src="http://lorempixel.com/100/100/", class="circle">
+        <p>
+          <span class="title">
+            <% if film.title %>
+              <%= link_to film.title, film_show_path %>
+            <% end %>
+          </span>
+            Trust fund lomo chambray, church-key selfies hella pickled. <br>
+            Disrupt squid asymmetrical swag, Neutra literally<br>
+        </p>
+        <a href="" class="secondary-content"><i class="material-icons"><%= film.review_score %> </i></a>
+        </li>
+      <% end %>
+  </ul>
+</div>
