@@ -10,12 +10,12 @@
   </div>
 <% end %>
 
-<%= form_for :comment, url: @url, method: 'POST' do |f| %>
+<%= form_for @comment, url: @url do |f| %>
   <%= f.label :content %>:
   <%= f.text_field :content %><br />
 
   <%= f.label :rating %>:
   <%= f.check_box :rating %><br />
 
-  <%= f.submit "Create" %>
+  <%= f.submit "Update" %>
 <% end %>
