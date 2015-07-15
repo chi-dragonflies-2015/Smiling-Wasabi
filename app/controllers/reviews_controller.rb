@@ -46,11 +46,11 @@ class ReviewsController < ApplicationController
 
   #require authorization
   def destroy
-  	film = Film.find(params[:film_id])
-    review = film.reviews.find(params[:id])
+  	@film = Film.find(params[:film_id])
+    @review = Review.find(params[:id])
 
-    review.destroy
-    redirect_to film
+    @review.destroy
+    redirect_to @film
   end
 
   private

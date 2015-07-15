@@ -169,7 +169,24 @@ RSpec.describe ReviewsController, type: :controller do
   end
 
   describe "reviews#destroy" do
-  	pending '   '
+  	before do
+      @original_count = @film.reviews.count
+      @original = @film.reviews.first
+      delete :destroy, {:film_id => @film.id,:id => @film.reviews.first.id}
+    end
+
+    it "assigns the requested review as @review" do
+      expect(assigns(:review)).to eq(@original)
+    end
+
+    it "destroys the requested game" do
+      expect(@original_count - @film.reviews.count).to eq(1)
+    end
+
+    it "redirects to the film list" do
+      expect(response).to redirect_to(@film)
+    end
+
   end
 
 end
