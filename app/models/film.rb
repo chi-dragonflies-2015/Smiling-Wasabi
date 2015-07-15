@@ -13,6 +13,27 @@ class Film < ActiveRecord::Base
     100 * good_reviews.length / all_reviews.length
   end
 
+  def self.top_movies
+    results = Imdb::Top250.new.movies.
+    results.select do |movie|
+      movie.title != ""
+    end
+  end
+
+  def self.movie_title(title)
+    results = Imdb::Search.new(title)
+    results.movies.each do |movie|
+      movie.title
+    end
+  end
+
+  def self.movie_plot(title)
+    results = Imdb::Search.new(title)
+    results.movies.each do |movie|
+      movie.plot
+    end
+  end
+
   def user_score
     all_votes = votes
     return 'N/A' if all_votes.length == 0
