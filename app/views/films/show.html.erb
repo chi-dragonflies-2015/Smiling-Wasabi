@@ -43,14 +43,16 @@
 
   <div class="comments">
    <ul class="collection">
+
+    <% if current_user %>
     <li> <%= link_to("Add Comment", new_film_comment_url(@film)) %>
+    <% end %>
+
     <li class="collection-item avatar">
       <% @comments.each do |comment| %>
         <img src="http://lorempixel.com/100/100/" alt="" class="circle">
    
          <span class="title"> <%= comment.user.name %> </span>
-
-        <p> <%= comment.content %> <br/>
 
         </p>
         <br><br>
