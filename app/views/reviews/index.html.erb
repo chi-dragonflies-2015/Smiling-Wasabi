@@ -1,16 +1,24 @@
 <div class="container">
-	<div class="side_bar">
-		img_tag("<%= @film.movie_art %>", class: "art_thumbnail")
-		<h4> <%= @film.title => </h4>
-	</div>
+
+<div class="side_bar">
+
+		<div class="card">
+      <div class="card-image">
+        <img src="<%= @film.movie_art %>">
+        
+      </div>
+    </div>
+
+	</div> 
 
 	<table>
-
+		<h2> Reviews </h2>
+	  
 	    <% @reviews.each do |review| %>
 	    <tr class="review">
 	    <td>By <%= review.user.name %></td>
 	    <td><%= review.content %><br/>
-	     <%= link_to('View Review...', review_path) %>
+	     <%= link_to('View Review...', film_review_url(@film, review)) %>
 	    </td>
 
 	    </tr>

@@ -21,8 +21,10 @@
       @review = Review.find(params[:review_id]) 
       @comment = @review.comments.new(comment_params)
       
+      
       if @comment.save
-        redirect_to @review, notice: 'Comment was successfully created.'
+        @comment.user = current_user
+        redirect_to film_review_path(@film, @review), notice: 'Comment was successfully created.'
       end
     
     else

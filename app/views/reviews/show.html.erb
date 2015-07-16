@@ -16,7 +16,7 @@
 	<div class="full_review">
 		Reviewer: <%= @review.user.name %>
 		<p> <%= @review.content %> </p>
-		<%= render partial: "/votes/vote", locals: { voteable: @review, vote_route: "/reviews/#{@review.id}/vote"}  %>
+		<%= render partial: "/votes/vote", locals: { voteable: @review, vote_route: "/reviews/#{@review.id}"}  %>
 	</div>
 
 	<div class="comments">
