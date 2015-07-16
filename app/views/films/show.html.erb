@@ -31,7 +31,7 @@
   <ul class="collection">
     <li class="collection-item avatar">
       <% @reviews.each do |review| %>
-        <img src="<%= review.user.avatar %>" alt="" class="circle">
+      <img src="http://lorempixel.com/100/100/" alt="" class="circle">
         <span class="title"> <%= review.user.name %> </span>
 
         <p> <%= review.content %> <br/>
@@ -43,26 +43,27 @@
     </li>
   </ul>
 
+  <%= paginate @reviews %>
 
   <div class="comments">
    <ul class="collection">
+    <li> <%= link_to("Add Comment", new_film_comment_url(@film)) %>
     <li class="collection-item avatar">
       <% @comments.each do |comment| %>
-        <img src="<%= comment.user.avatar %>" alt="" class="circle">
-        <span class="title"> <%= comment.user.name %> </span>
+        <img src="http://lorempixel.com/100/100/" alt="" class="circle">
+   
+         <span class="title"> <%= comment.user.name %> </span>
 
         <p> <%= comment.content %> <br/>
 
         </p>
-        <%= render partial: "/votes/vote", locals: { voteable: film, vote_route: "/comments/#{comment.id}"}  %>
         <br><br>
       <% end %>
     </li>
   </ul>
-
+  <%= paginate @comments %>
   </div>
 
 
-  <%= paginate @reviews %>
 
 </div>

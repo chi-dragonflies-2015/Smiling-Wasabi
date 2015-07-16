@@ -5,7 +5,7 @@ class FilmsController < ApplicationController
 
   def show
     @film = Film.find(params[:id])
-    @comments = @film.comments
+    @comments = @film.comments.page(params[:page]).per(5)
 
     @reviews = @film.reviews.page(params[:page]).per(5)
 
