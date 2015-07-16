@@ -7,16 +7,16 @@
     if params[:review_id]
       @review = Review.find(params[:review_id])    
       @comment = @review.comments.new
-      @url = "films/<%= @film.id %>/reviews/<%= @review.id %>/comments"
+      @url = "films/#{@film.id}/reviews/#{@review.id}/comments"
     else
-      @comment = Comment.new(film: @film)
-      @url = "films/<%= @film.id %>/comments"
+      @comment = @film.comments.new
+      @url = "films/#{@film.id}/comments"
     end
   end
 
   def create
     @film = Film.find(params[:film_id]) 
-
+  
     if params[:review_id]
       @review = Review.find(params[:review_id]) 
       @comment = @review.comments.new(comment_params)
@@ -27,6 +27,7 @@
     
     else
       @comment = @film.comments.new(comment_params)
+      @comment.user = current_user
       if @comment.save
         redirect_to @film, notice: 'Comment was successfully created.'
       end 

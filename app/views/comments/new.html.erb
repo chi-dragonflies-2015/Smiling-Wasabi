@@ -1,4 +1,6 @@
-<% if @comment.errors.any? %>
+<div class="container">
+
+  <% if @comment.errors.any? %>
   <div id="error_explanation">
     <h3><%= pluralize(@comment.errors.count, "error") %> prohibited this comment from being saved:</h3>
 
@@ -10,12 +12,17 @@
   </div>
 <% end %>
 
-<%= form_for :comment, url: @url, method: 'POST' do |f| %>
-  <%= f.label :content %>:
-  <%= f.text_field :content %><br />
 
-  <%= f.label :rating %>:
-  <%= f.check_box :rating %><br />
+<%= form_tag(controller: "comments", action: "create", method: "post") %>
+  <%= label_tag(:content) %> :
+  <%= text_field_tag "comment[content]" %><br />
 
-  <%= f.submit "Create" %>
-<% end %>
+  <%= check_box_tag("comment[rating]") %><br />
+  <%= label_tag(:rating, "Must Watch") %>
+
+  <%= submit_tag("Create") %>
+
+
+
+
+</div>
