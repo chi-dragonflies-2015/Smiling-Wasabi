@@ -17,6 +17,7 @@
             <br>
             <%= "-#{review.user.name} on #{review.film.title}" %>
             <br>
+            <%= render partial: "/votes/vote", locals: { voteable: review, vote_route: "/reviews/#{review.id}"}  %>
         </p>
         <a href="" class="secondary-content"><i class="material-icons"></i></a>
         </li>
