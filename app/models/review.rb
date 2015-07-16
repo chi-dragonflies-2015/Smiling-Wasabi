@@ -11,7 +11,7 @@ class Review < ActiveRecord::Base
 
   def user_score
     all_votes = votes
-    return 'N/A' if all_votes.length == 0
+    return 0 if all_votes.length == 0
     upvotes = all_votes.select{ |vote| vote.value == true }
     100 * upvotes.length / all_votes.length
   end
