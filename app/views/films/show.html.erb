@@ -7,7 +7,7 @@
     <div class="col s12 m7">
       <div class="card photo_card">
         <div class="card-image">
-          <img src="http://lorempixel.com/500/400/">
+          <img src=" <%= @film.movie_art %> ">
           <span class="card-title"><%=@film.title %></span>
         </div>
       </div>
@@ -31,7 +31,7 @@
   <ul class="collection">
     <li class="collection-item avatar">
       <% @reviews.each do |review| %>
-        <img src="http://lorempixel.com/100/100/" alt="" class="circle">
+        <img src="<%= review.user.avatar %>" alt="" class="circle">
         <span class="title"> <%= review.user.name %> </span>
         <p> <%= review.content %> 
         </p>
@@ -40,5 +40,5 @@
       <% end %>
     </li>
   </ul>
-
+  <%= paginate @reviews %>
 </div>

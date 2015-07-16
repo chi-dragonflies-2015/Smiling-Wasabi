@@ -7,11 +7,11 @@
   <ul class="collection">
       <% @films.each do |film| %>
         <li class="collection-item avatar">
-        <img src="http://lorempixel.com/100/100/", class="circle">
+        <img src="film.movie_art", class="circle">
         <p>
           <span class="title">
             <% if film.title %>
-              <%= link_to film.title, film_show_path %>
+              <%= link_to film.title, film_path(film) %>
             <% end %>
           </span>
             Trust fund lomo chambray, church-key selfies hella pickled. <br>
