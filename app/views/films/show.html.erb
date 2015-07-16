@@ -16,7 +16,8 @@
         <% @film.genres.each do |genre| %>
           <%= genre.name %>
         <% end %>
-        <h5>Description:</h5> <%= @film.description %>
+        <h5>Description:</h5> <%= @film.description %><br />
+
       </div>
       <div class="card-action">
         <h4>Rating: <%= @film.review_score %></h4>
