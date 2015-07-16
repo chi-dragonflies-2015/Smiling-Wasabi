@@ -49,6 +49,6 @@ Film.all.each do |film|
     p n+=1
     FactoryGirl.create(:review, film: film, user: reviewer, content: Faker::Lorem.paragraphs(rand(4)+1).join(' '), rating: ratings.sample)
     FactoryGirl.create(:vote, voteable: film, voter: reviewer, value: ratings.sample)
-    FactoryGirl.create(:comment, user: reviewer, film: film)
+    FactoryGirl.create(:comment, user: reviewer, commentable: film)
   end
 end
