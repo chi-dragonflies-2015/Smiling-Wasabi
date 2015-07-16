@@ -8,7 +8,7 @@
 	<div class="full_review">
 		Reviewer: <%= @review.user.name %>
 		<p> <%= @review.content %> </p>
-		[ This was helpful | This was not helpful ]
+		<%= render partial: "/votes/vote", locals: { voteable: @review, vote_route: "/reviews/#{@review.id}"}  %>
 	</div>
 
 	<div class="comments">
