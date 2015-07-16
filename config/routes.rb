@@ -31,7 +31,7 @@ Rails.application.routes.draw do
   get '/films/film_id' => 'films#show', as: 'film_show'
 
 
-  put '/films/:film_id/vote' => 'votes#vote'
-  put '/reviews/:review_id/vote' => 'votes#vote'
+  post '/films/:film_id/vote' => 'votes#vote'
+  post '/reviews/:review_id/vote' => 'votes#vote'
 
 end

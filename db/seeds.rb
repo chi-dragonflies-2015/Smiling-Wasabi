@@ -34,9 +34,9 @@ puts "Building Films"
 movies.each do |movie|
   genres = movie['genres'].map{ |genre| Genre.find_by(name: genre) }
   if genres && genres.length > 0
-    FactoryGirl.create(:film, title: movie['title'], description: movie['plot'], movie_art: movie['poster'], genres: genres)
+    FactoryGirl.create(:film, title: movie['title'], description: movie['plot'], movie_art: movie['poster_url'], genres: genres)
   else
-    FactoryGirl.create(:film, title: movie['title'], description: movie['plot'], movie_art: movie['poster'])
+    FactoryGirl.create(:film, title: movie['title'], description: movie['plot'], movie_art: movie['poster_url'])
   end
 end
 
