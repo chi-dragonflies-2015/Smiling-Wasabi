@@ -8,15 +8,12 @@ class VotesController < ApplicationController
       voted_object = Film.find(params[:film_id]) if params[:film_id]
       vote = voted_object.votes.find_by(voter_id: current_user.id)
 
-      if vote && vote.value.to_s == params[:vote]
+      if vote && vote.value.to_s == params[:vote].to_s
         vote.destroy
-        puts 1
       elsif vote
-        puts 2
         vote.destroy
         voted_object.votes.create(voter: current_user, value: params[:vote])
       else
-        puts 3
         voted_object.votes.create(voter: current_user, value: params[:vote])
       end
 

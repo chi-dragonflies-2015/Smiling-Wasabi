@@ -1,8 +1,4 @@
-<% if current_user == nil %>
-  <%= render 'login' %>
-<% else %>
-  <%= render 'logout' %>
-<% end %>
+
 <div class="general-container">
     <div class="col s12 m7">
       <div class="card photo_card">
@@ -23,7 +19,7 @@
         <h5>Description:</h5> <%= @film.description %>
       </div>
       <div class="card-action">
-        <h3>Rating: <%= @film.review_score %></h3>
+        <h4>Rating: <%= @film.review_score %></h4>
         <%= render partial: "/votes/vote", locals: { voteable: @film, vote_route: "/films/#{@film.id}"}  %>
       </div>
     </div>

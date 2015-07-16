@@ -17,7 +17,7 @@ function vote(event, vote){
     data: { vote: vote },
     dataType: 'json',
   }).done(function(response){
-    if (response.status == 200){
+    if (response.status == 'ok'){
       $(that).toggleClass('voted');
       $(that).siblings().removeClass('voted');
       $(that).siblings('.score').text(response.score + '% like this with ' + response.num_votes + ' people voting');
