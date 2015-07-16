@@ -1,8 +1,4 @@
-<% if current_user == nil %>
-  <%= render 'login' %>
-<% else %>
-  <%= render 'logout' %>
-<% end %>
+
 <div class="general-container">
   <ul class="collection">
       <% @reviews.each do |review| %>
@@ -17,6 +13,7 @@
             <br>
             <%= "-#{review.user.name} on #{review.film.title}" %>
             <br>
+            <%= render partial: "/votes/vote", locals: { voteable: review, vote_route: "/reviews/#{review.id}"}  %>
         </p>
         <a href="" class="secondary-content"><i class="material-icons"></i></a>
         </li>

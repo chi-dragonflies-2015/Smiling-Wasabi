@@ -8,7 +8,11 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-
+<% if current_user == nil %>
+  <%= render 'login' %>
+<% else %>
+  <%= render 'logout' %>
+<% end %>
 <%= yield %>
 
 </body>
