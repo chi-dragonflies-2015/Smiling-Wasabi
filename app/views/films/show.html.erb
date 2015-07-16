@@ -7,7 +7,7 @@
     <div class="col s12 m7">
       <div class="card photo_card">
         <div class="card-image">
-          <img src="http://lorempixel.com/500/400/">
+          <img src=" <%= @film.movie_art %> ">
           <span class="card-title"><%=@film.title %></span>
         </div>
       </div>
@@ -31,7 +31,7 @@
   <ul class="collection">
     <li class="collection-item avatar">
       <% @reviews.each do |review| %>
-        <img src="http://lorempixel.com/100/100/" alt="" class="circle">
+        <img src="<%= review.user.avatar %>" alt="" class="circle">
         <span class="title"> <%= review.user.name %> </span>
 
         <p> <%= review.content %> <br/>
@@ -43,20 +43,26 @@
     </li>
   </ul>
 
+
   <div class="comments">
-    <table>
-      <tr><td colspan=2 > <%= link_to "Add Comment", new_film_comment_url(@film) %> </td></tr>
+   <ul class="collection">
+    <li class="collection-item avatar">
       <% @comments.each do |comment| %>
-      <tr>
-    <td> By: <%= comment.user.name %> </td>
-    <td> <%= comment.content %> </td> <br/>
-    
-    [ This was helpful | This was not helpful ]
-    </tr>
-    <% end %>
-    </table>
+        <img src="<%= comment.user.avatar %>" alt="" class="circle">
+        <span class="title"> <%= comment.user.name %> </span>
+
+        <p> <%= comment.content %> <br/>
+
+        </p>
+        <%= render partial: "/votes/vote", locals: { voteable: film, vote_route: "/comments/#{comment.id}"}  %>
+        <br><br>
+      <% end %>
+    </li>
+  </ul>
 
   </div>
 
+
+  <%= paginate @reviews %>
 
 </div>

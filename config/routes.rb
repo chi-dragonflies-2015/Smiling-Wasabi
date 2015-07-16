@@ -14,8 +14,9 @@ Rails.application.routes.draw do
   
 
   resources :films, :only => [:index, :show] do
-    resources :reviews 
+    resources :reviews
   end
+
   
   get '/films/:film_id/comments/new' => 'comments#new', as: 'new_film_comment'
   get '/films/:film_id/reviews/:review_id/comments/new' => 'comments#new', as: 'new_review_comment'
@@ -26,9 +27,9 @@ Rails.application.routes.draw do
   put '/films/:film_id/comments/:id' => 'comments#update'
   put '/films/:film_id/reviews/:review_id/comments/:id' => 'comments#update'
 
+
   delete '/films/:film_id/comments/:id' => 'comments#destroy', as: 'delete_film_comment'
   delete '/films/:film_id/reviews/:review_id/comments/:id' => 'comments#destroy', as: 'delete_review_comment'
-
 
   post '/films/:film_id/vote' => 'votes#vote'
   post '/reviews/:review_id/vote' => 'votes#vote'
