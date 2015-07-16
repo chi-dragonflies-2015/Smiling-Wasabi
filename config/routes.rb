@@ -13,9 +13,6 @@ Rails.application.routes.draw do
   get '/films/film_id' => 'films#show', as: 'film_show'
   
 
-  put '/films/:film_id/vote' => 'votes#vote'
-  put '/reviews/:review_id/vote' => 'votes#vote'
-
   resources :films, :only => [:index, :show] do
     resources :reviews 
   end
@@ -33,8 +30,8 @@ Rails.application.routes.draw do
   delete '/films/:film_id/reviews/:review_id/comments/:id' => 'comments#destroy', as: 'delete_review_comment'
 
 
-
-
+  post '/films/:film_id/vote' => 'votes#vote'
+  post '/reviews/:review_id/vote' => 'votes#vote'
 
 
 end
