@@ -1,10 +1,16 @@
 <div class="container">
 
 	<div class="side_bar">
-		img_tag("<%= @film.movie_art %>", class: "art_thumbnail")
-		<h4> <%= @film.title %> </h4>
+		<div class="card">
+      <div class="card-image">
+        <img src=" <%= @film.movie_art %>">
+        <span class="card-title">Card Title</span>
+      </div>
+    </div>
 	</div>
-	
+
+		<h4> <%= @film.title %> </h4>
+
 	<div class="full_review">
 		Reviewer: <%= @review.user.name %>
 		<p> <%= @review.content %> </p>
