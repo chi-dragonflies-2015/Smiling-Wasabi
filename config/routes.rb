@@ -10,6 +10,7 @@ Rails.application.routes.draw do
   get '/signup' => 'users#new'
   post '/users' => 'users#create'
 
+  get '/reviews', to:'reviews#latest', as: :latest_reviews
 
   resources :films, :only => [:index, :show] do
     resources :reviews
