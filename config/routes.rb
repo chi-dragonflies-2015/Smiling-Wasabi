@@ -34,7 +34,7 @@ Rails.application.routes.draw do
   delete '/films/:film_id/reviews/:review_id/comments/:id' => 'comments#destroy', as: 'delete_review_comment'
 
   post '/films/:film_id/vote' => 'votes#vote', as: 'vote_route'
-  post '/reviews/:review_id/vote' => 'votes#vote', as: 'vote_route'
+  post '/reviews/:review_id/vote' => 'votes#vote'
 
 
 end

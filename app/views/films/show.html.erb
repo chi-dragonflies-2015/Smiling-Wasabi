@@ -20,7 +20,7 @@
       </div>
       <div class="card-action">
         <h4>Rating: <%= @film.review_score %></h4>
-        <%= render partial: "/votes/vote", locals: { voteable: @film, vote_route: "/films/#{@film.id}"}  %>
+        <%= render partial: "/votes/vote", locals: { voteable: @film, vote_route: "/films/#{@film.id}/vote"}  %>
       </div>
     </div>
   </div>
@@ -51,7 +51,7 @@
     <li class="collection-item avatar">
       <% @comments.each do |comment| %>
         <img src="http://lorempixel.com/100/100/" alt="" class="circle">
-   
+
          <span class="title"> <%= comment.user.name %> </span>
 
         </p>
