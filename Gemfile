@@ -28,6 +28,7 @@ gem 'imdb', '~> 0.8'
 gem 'thin'
 gem 'kaminari'
 gem 'factory_girl_rails'
+gem 'faker'
 
 # Use Unicorn as the app server
 # gem 'unicorn'
@@ -51,7 +52,6 @@ group :development, :test do
   gem 'rspec-rails'
   gem 'database_cleaner'
   gem 'capybara'
-  gem 'faker'
   gem 'jasmine-rails'
   gem 'jasmine-jquery-rails'
 end

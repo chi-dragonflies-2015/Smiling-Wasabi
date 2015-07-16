@@ -8,7 +8,7 @@ require 'csv'
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
 movies = CSV.read('db/seeds.csv', headers: true)
-movies = movies.map do |movie| 
+movies = movies.map do |movie|
   movie['genres'] = movie['genres'].gsub("\"", '').gsub(/[\[\]]/, '')
   movie['genres'] = movie['genres'].split(', ')
   movie
@@ -46,8 +46,9 @@ n = 0
 puts "Building 5,000 Reviews and Votes"
 Film.all.each do |film|
   reviewers.sample(20).each do |reviewer|
-    p n+=1 
+    p n+=1
     FactoryGirl.create(:review, film: film, user: reviewer, content: Faker::Lorem.paragraphs(rand(4)+1).join(' '), rating: ratings.sample)
     FactoryGirl.create(:vote, voteable: film, voter: reviewer, value: ratings.sample)
+    FactoryGirl.create(:comment, user: reviewer, film: film)
   end
 end
