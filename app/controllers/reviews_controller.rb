@@ -53,6 +53,10 @@ class ReviewsController < ApplicationController
     redirect_to @film
   end
 
+  def latest
+    @reviews = Review.all.order('created_at DESC').limit(20)
+  end
+
   private
   
   def review_params

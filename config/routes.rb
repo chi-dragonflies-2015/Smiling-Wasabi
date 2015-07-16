@@ -11,7 +11,9 @@ Rails.application.routes.draw do
   post '/users' => 'users#create'
 
   get '/films/film_id' => 'films#show', as: 'film_show'
-  
+
+  get '/reviews', to:'reviews#latest', as: :latest_reviews
+
 
   resources :films, :only => [:index, :show] do
     resources :reviews
