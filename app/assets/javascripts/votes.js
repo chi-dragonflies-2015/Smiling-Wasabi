@@ -3,8 +3,8 @@ $(document).ready(function(){
 });
 
 function bindVotes(){
-  $('.upvote').on('click', function(event){ vote(event, true) });
-  $('.downvote').on('click', function(event){ vote(event, false) });
+  $(document).on('click', '.upvote', function(event){ vote(event, true) });
+  $(document).on('click', '.downvote', function(event){ vote(event, false) });
 }
 
 function vote(event, vote){
