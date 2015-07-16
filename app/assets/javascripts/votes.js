@@ -16,12 +16,11 @@ function vote(event, vote){
     method: 'POST',
     data: { vote: vote },
     dataType: 'json',
-    statusCode:{
-      200: function(response){
-          $(that).toggleClass('voted');
-          $(that).siblings().removeClass('voted');
-          $(that).siblings('.score').text(response.score + '% like this with ' + response.num_votes + ' people voting');
-        }
+  }).done(function(response){
+    if (response.status == 200){
+      $(that).toggleClass('voted');
+      $(that).siblings().removeClass('voted');
+      $(that).siblings('.score').text(response.score + '% like this with ' + response.num_votes + ' people voting');
     }
-  });
+  })
 };

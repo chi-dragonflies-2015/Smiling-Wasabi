@@ -3,7 +3,11 @@
       vote_route is either /films/film.id or /reviews/review.id -->
 
 <div class='vote-box'>
-  <a href="<%= vote_route %>/vote" class='upvote'>Recommend this!</a>
+  <% if current_user %>
+    <a href="<%= vote_route %>/vote" class='upvote'>Recommend this!</a>
+  <% end %>
   <span class="score"><%= "#{voteable.user_score}% like this with #{voteable.votes.length} people voting" %></span>
-  <a href="<%= vote_route %>/vote" class='downvote'>This was bad!</a>
+  <% if current_user %>
+    <a href="<%= vote_route %>/vote" class='downvote'>This was bad!</a>
+  <% end %>
 </div>
