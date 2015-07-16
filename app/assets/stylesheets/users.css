@@ -19,16 +19,20 @@
 }
 
 nav .brand-logo{
-  padding-left: 3%;
+  padding: 0;
+  width: 65px;
 }
 
+#nav-mobile{
+  width: 95%;
+}
 nav .nav-wrapper{
   background-color: #c1e58d;
 }
 
 #wasabi_logo {
-  width: 25%;
-  height: 25%;
+  width: 100%;
+  height: 100%;
 }
 
 .btn {

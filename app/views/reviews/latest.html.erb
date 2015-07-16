@@ -1,0 +1,25 @@
+<% if current_user == nil %>
+  <%= render 'login' %>
+<% else %>
+  <%= render 'logout' %>
+<% end %>
+<div class="general-container">
+  <ul class="collection">
+      <% @reviews.each do |review| %>
+        <li class="collection-item avatar">
+        <img src="http://lorempixel.com/100/100/", class="circle">
+        <p>
+          <span class="title">
+            <% if review.content %>
+              <%= link_to review.content, film_review_path(review.film, review) %>
+            <% end %>
+          </span>
+            <br>
+            <%= "-#{review.user.name} on #{review.film.title}" %>
+            <br>
+        </p>
+        <a href="" class="secondary-content"><i class="material-icons"></i></a>
+        </li>
+      <% end %>
+  </ul>
+</div>
