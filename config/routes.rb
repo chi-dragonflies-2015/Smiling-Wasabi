@@ -19,10 +19,10 @@ Rails.application.routes.draw do
     resources :reviews
   end
 
-  
+
   get '/films/:film_id/comments/new' => 'comments#new', as: 'new_film_comment'
   get '/films/:film_id/reviews/:review_id/comments/new' => 'comments#new', as: 'new_review_comment'
-  
+
   post '/films/:film_id/comments' => 'comments#create'
   post '/films/:film_id/reviews/:review_id/comments' => 'comments#create'
 
@@ -33,8 +33,8 @@ Rails.application.routes.draw do
   delete '/films/:film_id/comments/:id' => 'comments#destroy', as: 'delete_film_comment'
   delete '/films/:film_id/reviews/:review_id/comments/:id' => 'comments#destroy', as: 'delete_review_comment'
 
-  post '/films/:film_id/vote' => 'votes#vote'
-  post '/reviews/:review_id/vote' => 'votes#vote'
+  post '/films/:film_id/vote' => 'votes#vote', as: 'vote_route'
+  post '/reviews/:review_id/vote' => 'votes#vote', as: 'vote_route'
 
 
 end
