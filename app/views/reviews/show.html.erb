@@ -1,7 +1,7 @@
 <div class="container">
 
 	<div class="side_bar">
-		<%= img_tag("<%= @film.movie_art %>", class: "art_thumbnail") %>
+		<%= img_tag("<%= @film.movie_art %>") %>
 		<h4> <%= @film.title %> </h4>
 	</div>
 	
@@ -12,7 +12,21 @@
 	</div>
 
 	<div class="comments">
+	<% if current_user %>
+    	<li> <%= link_to("Add Comment", new_review_comment_url(@film, @review)) %>
+    <% end %>
 
+    <ul class="collection">
+    <li class="collection-item avatar">
+      <% @comments.each do |comment| %>
+        <img src="http://lorempixel.com/100/100/" alt="" class="circle">
+   
+         <span class="title"> <%= comment.user.name %> </span>
+
+        </p>
+        <br><br>
+      <% end %>
+    </li>
 	</div>
 
 

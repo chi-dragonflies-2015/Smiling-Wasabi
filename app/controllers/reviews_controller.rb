@@ -24,6 +24,7 @@ class ReviewsController < ApplicationController
   def show
     @film = Film.find(params[:film_id])
     @review = Review.find(params[:id])
+    @comments = @review.comments
   end
 
   #require authorization

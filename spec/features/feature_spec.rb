@@ -85,7 +85,7 @@ RSpec.feature 'Individual Review Page', type: :feature do
     DatabaseCleaner.clean
   end
 
-  scenario 'user can see full review on a review page' do
+  xscenario 'user can see full review on a review page' do
     visit film_review_path(@film, @review) 
     expect(page).to have_css '.full_review'
   end
