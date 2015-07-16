@@ -7,14 +7,15 @@
     if params[:review_id]
       @review = Review.find(params[:review_id])    
       @comment = @review.comments.new
-      @url = "films/<%= @film.id %>/reviews/<%= @review.id %>/comments"
+      @url = "films/#{@film.id}/reviews/#{@review.id}/comments"
     else
-      @comment = Comment.new(film: @film)
-      @url = "films/<%= @film.id %>/comments"
+      @comment = @film.comments.new
+      @url = "films/#{@film.id}/comments"
     end
   end
 
   def create
+    puts '----------------------------------------'
     @film = Film.find(params[:film_id]) 
 
     if params[:review_id]
@@ -33,6 +34,7 @@
     end
 
     unless @comment.save
+      puts '***************************************************'
       render :new
     end
   end
