@@ -2,6 +2,7 @@ class VotesController < ApplicationController
 
   def vote
     if current_user.nil?
+      puts "************************"
       render :json => { :status => 403 }
     else
       voted_object = Review.find(params[:review_id]) if params[:review_id]
