@@ -27,6 +27,7 @@ gem 'bcrypt', '~> 3.1.7'
 gem 'imdb', '~> 0.8'
 gem 'thin'
 gem 'kaminari'
+gem 'factory_girl_rails'
 
 # Use Unicorn as the app server
 # gem 'unicorn'
@@ -48,7 +49,6 @@ group :development, :test do
   gem 'coveralls', require: false
 
   gem 'rspec-rails'
-  gem 'factory_girl_rails'
   gem 'database_cleaner'
   gem 'capybara'
   gem 'faker'
