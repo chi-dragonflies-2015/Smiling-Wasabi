@@ -11,6 +11,14 @@
     </ul>
   </div>
 <% end %>
+<p> ***********************<br/>
+    <%= form_for @comment {controller: "comments", action: "create", method: "post"} do |f| %>
+    <%= f.label :content %><br/>
+    <%= f.text_field :content %><br/>
+    <%= f.submit %>
+    <% end %>
+
+<p> ***********************<br/>
 
 <%= form_tag(controller: "comments", action: "create", method: "post") %>
   <%= label_tag(:content) %> :
